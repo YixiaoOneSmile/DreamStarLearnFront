@@ -1,15 +1,14 @@
 import React from 'react';
-// import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { createExam } from '../../api/index.js';
 import { Form, Input, Button } from 'antd';
 
 const CreateExamPage = () => {
-  // const history = useHistory();
-
   const onFinish = async (values) => {
     try {
       const response = await createExam(values);
-      // history.push('/exams');
+      //
+      console.log(response)
     } catch (error) {
       // 显示错误信息
     }
@@ -40,6 +39,9 @@ const CreateExamPage = () => {
           </Button>
         </Form.Item>
       </Form>
+      <div>
+        <Link to="/exams">Exams</Link>
+      </div>
     </div>
   );
 };

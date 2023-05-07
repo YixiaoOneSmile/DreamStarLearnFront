@@ -10,9 +10,11 @@ import CreateExamPage from './pages/CreateExamPage/CreateExamPage';
 import StudentExamPage from './pages/StudentExamPage/StudentExamPage';
 import StudentExamResultPage from './pages/StudentExamResultPage/StudentExamResultPage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
+import NavTop from './componet/Navtop/Navtop'
 function App() {
   return (
     <Router>
+      <NavTop></NavTop>
       <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/courses" element={<CourseListPage />} />
@@ -24,7 +26,6 @@ function App() {
         <Route path="/reg"  element={<RegisterPage />} />
         <Route path="/exams/:examId/take" element={<StudentExamPage />} />
         <Route path="/exam-result/:resultId" element={<StudentExamResultPage />} /> 
-
         {/*
          <Route path="/courses" element={<CourseListPage />} />
         <Route path="/courses/:courseId" element={<CourseDetailsPage />} />

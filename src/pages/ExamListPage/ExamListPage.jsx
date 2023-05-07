@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { getExams } from '../../api/index.js';
-import { List, Card, Button } from 'antd';
+import { List, Card } from 'antd';
 
 const ExamListPage = () => {
   const [exams, setExams] = useState([]);
-  // const history = useHistory();
 
   useEffect(() => {
     const fetchExams = async () => {
@@ -31,12 +30,9 @@ const ExamListPage = () => {
             <Card
               title={exam.title}
               extra={
-                <Button
-                  type="primary"
-                  // onClick={() => history.push(`/exams/${exam._id}`)}
-                >
+                <Link to={`/exams/${exam._id}`}>
                   View
-                </Button>
+                </Link>
               }
             >
               <p>{exam.description}</p>

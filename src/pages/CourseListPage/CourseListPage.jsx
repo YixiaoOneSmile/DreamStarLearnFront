@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-// import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom'; // 引入 Link 组件
 import { getCourses } from '../../api/index.js';
 import { List, Card, Button } from 'antd';
 
 const CourseListPage = () => {
-  const [courses, setCourses] = useState([]);  
-  // const history = useHistory();
+  const [courses, setCourses] = useState([]);
   useEffect(() => {
     const fetchCourses = async () => {
       try {
@@ -29,14 +28,12 @@ const CourseListPage = () => {
           <List.Item>
             <Card
               title={course.title}
-              // extra={
-              //   <Button
-              //     type="primary"
-              //     onClick={() => history.push(`/courses/${course._id}`)}
-              //   >
-              //     View
-              //   </Button>
-              // }
+              extra={
+                // 使用 Link 组件替换 Button 组件
+                <Link to={`/courses/${course._id}`}>
+                  <Button type="primary">View</Button>
+                </Link>
+              }
             >
               <p>{course.description}</p>
             </Card>

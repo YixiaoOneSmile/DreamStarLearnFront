@@ -1,18 +1,18 @@
 import React from 'react';
-// import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { createCourse } from '../../api/index.js';
 import { Form, Input, Button } from 'antd';
 
 const CreateCoursePage = () => {
-  // const history = useHistory();
 
   const onFinish = async (values) => {
-    // try {
-    //   const response = await createCourse(values);
-    //   history.push('/courses');
-    // } catch (error) {
-    //   // 显示错误信息
-    // }
+    try {
+      const response = await createCourse(values);
+      // 跳转到课程列表页
+      console.log(response)
+    } catch (error) {
+      // 显示错误信息
+    }
   };
 
   return (
@@ -37,6 +37,7 @@ const CreateCoursePage = () => {
           <Button type="primary" htmlType="submit">
             Create Course
           </Button>
+          <Link to="/courses">Back to Course List</Link>
         </Form.Item>
       </Form>
     </div>
