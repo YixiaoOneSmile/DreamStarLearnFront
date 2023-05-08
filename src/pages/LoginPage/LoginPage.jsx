@@ -1,13 +1,29 @@
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Col, Form, Input, Row, Typography } from 'antd';
+import { useNavigate } from 'react-router-dom';
 import React from 'react';
 import Illustration from '../../assets/undraw_secure_login_pdn4.svg';
 import './LoginPage.css';
+import { login } from '../../api/index.js';
+
 const { Title } = Typography;
 
 const LoginPage = () => {
-	const onFinish = (values) => {
-		console.log('Received values of form: ', values);
+	const navigate = useNavigate();
+	const onFinish = async(values) => {
+		const {username,password} = values;
+		try {
+			const response = await login(username, password);
+			const token = response.data.token
+			localStorage.setItem('token',token)
+			navigate('courses');
+			window.location.reload();
+			
+			// You can now redirect the user or update the application state as needed.
+		  } catch (error) {
+			console.error('Login failed:', error);
+			// Show an error message to the user or handle the error as needed.
+		  }
 	};
 
 	return (
