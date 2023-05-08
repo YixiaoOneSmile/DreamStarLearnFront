@@ -3,8 +3,41 @@ import { Link } from 'react-router-dom'; // 引入 Link 组件
 import { getCourses } from '../../api/index.js';
 import { List, Card, Button } from 'antd';
 
+const mockCourses = [
+  {
+    _id: '1',
+    title: 'Course 1',
+    description: 'This is a description for Course 1.',
+  },
+  {
+    _id: '2',
+    title: 'Course 2',
+    description: 'This is a description for Course 2.',
+  },
+  {
+    _id: '3',
+    title: 'Course 3',
+    description: 'This is a description for Course 3.',
+  },
+  {
+    _id: '4',
+    title: 'Course 4',
+    description: 'This is a description for Course 4.',
+  },
+  {
+    _id: '4',
+    title: 'Course 4',
+    description: 'This is a description for Course 4.',
+  },
+  {
+    _id: '4',
+    title: 'Course 4',
+    description: 'This is a description for Course 4.',
+  },
+];
+
 const CourseListPage = () => {
-  const [courses, setCourses] = useState([]);
+  const [courses, setCourses] = useState(mockCourses);
   useEffect(() => {
     const fetchCourses = async () => {
       try {

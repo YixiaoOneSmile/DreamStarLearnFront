@@ -16,7 +16,9 @@ const LoginPage = () => {
 			const response = await login(username, password);
 			const token = response.data.token
 			localStorage.setItem('token',token)
-			navigate('/');
+			navigate('courses');
+			window.location.reload();
+			
 			// You can now redirect the user or update the application state as needed.
 		  } catch (error) {
 			console.error('Login failed:', error);

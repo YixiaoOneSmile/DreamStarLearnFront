@@ -52,7 +52,7 @@ const HeaderMenu = () => {
                 <Link to="/login">登录</Link>
               </Menu.Item>
               <Menu.Item key="register" style={menuItemStyle}>
-                <Link to="/register">注册</Link>
+                <Link to="/reg">注册</Link>
               </Menu.Item>
             </>
           )}
