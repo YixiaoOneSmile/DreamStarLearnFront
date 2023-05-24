@@ -29,8 +29,8 @@ export const register = async (id, password) => {
 // 获取课程
 export const getCourses = async () => {
   try {
-    const response = await axios.get('/getAllCourses');
-    return response.data;
+    const response = await axios.get('http://localhost:3000/getAllCourses');
+    return response;
   } catch (error) {
     throw new Error(error);
   }
@@ -39,7 +39,7 @@ export const getCourses = async () => {
 // 获取单个课程
 export const getCourse = async (courseId) => {
   try {
-    const response = await axios.get(`/getAllCourses/${courseId}`);
+    const response = await axios.get(`http://localhost:3000/getAllCourses/${courseId}`);
     return response.data;
   } catch (error) {
     throw new Error(error);

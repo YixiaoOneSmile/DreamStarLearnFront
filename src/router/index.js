@@ -30,7 +30,7 @@ const router = createRouter({
       component: CourseList
     },
     {
-      path: '/CourseDetail',
+      path: '/courses/:courseId',
       name: 'coursedetail',
       component: CourseDeatil
     },

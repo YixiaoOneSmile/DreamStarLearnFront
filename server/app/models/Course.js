@@ -23,6 +23,7 @@ const courseSchema = new mongoose.Schema({
     chapters: [
         {
             title: String,
+            img:String,
             description: String,
             videoURL: String,
             pdfURL: String,
