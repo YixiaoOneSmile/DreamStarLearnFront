@@ -13,7 +13,7 @@
         <router-link to="/" class="header-menu-item">
           首页
         </router-link>
-        <router-link to="Course" class="header-menu-item">
+        <router-link to="/Course" class="header-menu-item">
           课程
         </router-link>
         <router-link to="/CourseDetail" class="header-menu-item">

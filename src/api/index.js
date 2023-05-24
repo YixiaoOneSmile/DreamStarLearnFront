@@ -56,8 +56,18 @@ export const createCourse = async (course) => {
   }
 };
 
+// 删除课程
+export const deleteCourse = async (course) => {
+  try {
+    const response = await axios.post(`/deleteCourse/${courseId}`);
+    return response.data;
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
 // 创建章节
-export const createChapter = async (courseId, chapterData) => {
+export const addChapter = async (courseId, chapterData) => {
   try {
     const response = await axios.post(`/courses/${courseId}`, chapterData);
     return response.data;

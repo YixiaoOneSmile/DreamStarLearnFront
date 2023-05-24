@@ -6,8 +6,10 @@ module.exports = function (app, passport) {
     authorization(passport);
 
     app.post("/createCourse", courseController.createCourse);
+    app.post('/deleteCourse/:courseId',courseController.deleteCourse);
     app.get("/getAllCourses", courseController.getAllCourses);
     app.get("/getAllCourses/:id", courseController.getCourseById);
     app.get("/getCoursesByName", courseController.getCourseByName);
     app.post('/courses/:courseId', courseController.createChapter);
+    
 };
