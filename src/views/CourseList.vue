@@ -1,4 +1,5 @@
 <template>
+  <div style=" width: 100vw;height: 60px;background-color: rgb(62, 137, 183);margin:-1vw;"></div>
   <div class="main" >
     <div class="left">
       <div class="section">
@@ -74,7 +75,7 @@ onMounted(async () => {
 <style scoped>
 .main {
   display: flex;
-  margin: 10vh 10vw;
+  margin: 5vh 10vw;
   justify-content: space-between;
 }
 
