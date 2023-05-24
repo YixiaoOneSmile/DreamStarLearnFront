@@ -1,29 +1,28 @@
 # Dream
 
-This template should help get you started developing with Vue 3 in Vite.
+这是一个团队课程学习与测试的项目，正在开发当中，欢迎各位小伙伴加入到开发中来。
+  该项目使用技术为：vue3+vite+node+express。
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
+## 启动步骤
+### 安装依赖
 ```sh
 npm install
 ```
-
-### Compile and Hot-Reload for Development
+### 前端启动
 
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+### 构建命令
 
 ```sh
 npm run build
+```
+### 后端启动
+```sh
+进入到后端server目录
+  cd .\server\
+启动server.js文件
+  node .\server.js
 ```
