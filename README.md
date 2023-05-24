@@ -20,9 +20,11 @@ npm run dev
 npm run build
 ```
 ### 后端启动
+#### 进入到后端server目录
 ```sh
-进入到后端server目录
   cd .\server\
-启动server.js文件
+```
+#### 启动server.js文件
+```sh
   node .\server.js
 ```
