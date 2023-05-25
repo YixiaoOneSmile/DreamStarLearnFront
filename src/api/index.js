@@ -65,11 +65,24 @@ export const deleteCourse = async (course) => {
     throw new Error(error);
   }
 };
+//搜索课程
+export const findCourse = async (name) => {
+  try {
+    const response = await axios.get(`http://localhost:3000/getCoursesByName`, {
+      params: {
+        name: name,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error(error);
+  }
+};
 
 // 创建章节
 export const addChapter = async (courseId, chapterData) => {
   try {
-    const response = await axios.post(`/courses/${courseId}`, chapterData);
+    const response = await axios.post(`http://localhost:3000/courses/${courseId}`, chapterData);
     return response.data;
   } catch (error) {
     throw new Error(error);
