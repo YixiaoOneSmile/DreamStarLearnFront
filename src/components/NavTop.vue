@@ -19,7 +19,7 @@
         <router-link to="/CourseDetail" class="header-menu-item">
           Test
         </router-link>
-        <router-link to="//CreateCourse" class="header-menu-item">
+        <router-link to="/CreateCourse" class="header-menu-item">
           其他
         </router-link>
   
