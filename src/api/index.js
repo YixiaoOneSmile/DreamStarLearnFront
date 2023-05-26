@@ -57,9 +57,9 @@ export const createCourse = async (course) => {
 };
 
 // 删除课程
-export const deleteCourse = async (course) => {
+export const deleteCourse = async (courseId) => {
   try {
-    const response = await axios.post(`/deleteCourse/${courseId}`);
+    const response = await axios.post(`http://localhost:3000/deleteCourse/${courseId}`);
     return response.data;
   } catch (error) {
     throw new Error(error);
