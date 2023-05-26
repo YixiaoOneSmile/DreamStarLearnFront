@@ -2,7 +2,7 @@
   <el-form :model="chapterForm" @submit.native.prevent="handleSubmit" label-width="120px">
     <el-form-item label="课程名称" prop="course">
       <el-select v-model="selectedCourse" placeholder="请选择">
-        <el-option v-for="course in courses" :key="course._id" :label="course.name" :value="course._id" >
+        <el-option v-for="course in courses" :key="course._id" :label="course.name" :value="course._id">
         </el-option>
       </el-select>
     </el-form-item>
@@ -14,7 +14,12 @@
     <el-form-item label="章节描述" prop="description">
       <el-input type="textarea" v-model="chapterForm.description" />
     </el-form-item>
-
+    <el-form-item label="上传视频" prop="videoURL">
+      <el-upload action="https://example.com/upload" accept="video/*" :on-success="handleSuccess" :on-error="handleError"
+        :before-upload="beforeUpload">
+        <el-button slot="trigger" size="small" type="primary">点击上传</el-button>
+      </el-upload>
+    </el-form-item>
     <el-form-item label="视频URL" prop="videoURL">
       <el-input v-model="chapterForm.videoURL" />
     </el-form-item>
@@ -30,8 +35,8 @@
 </template>
 
 <script setup>
-import { ref ,onMounted} from 'vue'
-import { addChapter,findCourse} from '../api/index.js'
+import { ref, onMounted } from 'vue'
+import { addChapter, findCourse } from '../api/index.js'
 
 let selectedCourse = ref(null); // 保存用户选择的课程
 let courses = ref([]); // 课程列表
@@ -50,6 +55,22 @@ let chapterForm = ref({
   videoURL: '',
   pdfURL: ''
 })
+//文件上传
+const handleSuccess = (response, file, fileList) => {
+  // handle success
+  console.log(response);
+  chapterForm.value.videoURL= response.url;  // 假设服务器的响应中包含文件的 URL
+};
+
+const handleError = (err, file, fileList) => {
+  // handle error
+  console.error(err);
+};
+
+const beforeUpload = (file) => {
+  // 可以在此处进行文件类型、大小的检查
+  console.log(file);
+};
 
 const handleSubmit = async () => {
   try {
