@@ -49,7 +49,7 @@ export const getCourse = async (courseId) => {
 // 创建课程
 export const createCourse = async (course) => {
   try {
-    const response = await axios.post('/createCourse', course);
+    const response = await axios.post('http://localhost:3000/createCourse', course);
     return response.data;
   } catch (error) {
     throw new Error(error);

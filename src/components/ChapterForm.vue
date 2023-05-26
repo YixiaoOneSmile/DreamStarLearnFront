@@ -24,9 +24,9 @@
       <el-input v-model="chapterForm.videoURL" />
     </el-form-item>
 
-    <el-form-item label="PDF URL" prop="pdfURL">
+    <!-- <el-form-item label="PDF URL" prop="pdfURL">
       <el-input v-model="chapterForm.pdfURL" />
-    </el-form-item>
+    </el-form-item> -->
 
     <el-form-item>
       <el-button type="primary" native-type="submit">添加章节</el-button>
@@ -87,7 +87,7 @@ const handleSubmit = async () => {
       title: '',
       description: '',
       videoURL: '',
-      pdfURL: ''
+      pdfURL: 'null'
     }
   } catch (error) {
     console.error(error)
