@@ -89,6 +89,24 @@ export const addChapter = async (courseId, chapterData) => {
   }
 };
 
+//上传文件
+export const uploadFile = async (file) => {
+  try {
+    let formData = new FormData();
+    formData.append('file', file);
+    
+    const response = await axios.post(`http://localhost:3000/upload`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    });
+
+    return response.data;
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
 // 创建考试
 
 // 获取考试
