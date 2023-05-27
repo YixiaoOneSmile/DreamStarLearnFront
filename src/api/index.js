@@ -1,11 +1,14 @@
 import axios from 'axios';
 
+const api = axios.create({
+  baseURL: 'http://localhost:3000',
+});
 // 登录
 export const login = async (id, password) => {
   
   try {
     const data = {id,password}
-    const response = await axios.post('http://localhost:3000/user/login', data);
+    const response = await api.post('/user/login', data);
     return response
   } catch (error) {
     throw new Error(error);
@@ -15,7 +18,7 @@ export const login = async (id, password) => {
 // 注册
 export const register = async (id, password) => {
   try {
-    const response = await axios.post('http://localhost:3000/user/register', {
+    const response = await api.post('/user/register', {
       id: id,
       password: password,
     });
@@ -29,7 +32,7 @@ export const register = async (id, password) => {
 // 获取课程
 export const getCourses = async () => {
   try {
-    const response = await axios.get('http://localhost:3000/getAllCourses');
+    const response = await api.get('/getAllCourses');
     return response;
   } catch (error) {
     throw new Error(error);
@@ -39,7 +42,7 @@ export const getCourses = async () => {
 // 获取单个课程
 export const getCourse = async (courseId) => {
   try {
-    const response = await axios.get(`http://localhost:3000/getAllCourses/${courseId}`);
+    const response = await api.get(`/getAllCourses/${courseId}`);
     return response.data;
   } catch (error) {
     throw new Error(error);
@@ -49,7 +52,7 @@ export const getCourse = async (courseId) => {
 // 创建课程
 export const createCourse = async (course) => {
   try {
-    const response = await axios.post('http://localhost:3000/createCourse', course);
+    const response = await api.post('/createCourse', course);
     return response.data;
   } catch (error) {
     throw new Error(error);
@@ -59,7 +62,7 @@ export const createCourse = async (course) => {
 // 删除课程
 export const deleteCourse = async (courseId) => {
   try {
-    const response = await axios.post(`http://localhost:3000/deleteCourse/${courseId}`);
+    const response = await api.post(`/deleteCourse/${courseId}`);
     return response.data;
   } catch (error) {
     throw new Error(error);
@@ -68,7 +71,7 @@ export const deleteCourse = async (courseId) => {
 //搜索课程
 export const findCourse = async (name) => {
   try {
-    const response = await axios.get(`http://localhost:3000/getCoursesByName`, {
+    const response = await api.get(`/getCoursesByName`, {
       params: {
         name: name,
       },
@@ -82,7 +85,7 @@ export const findCourse = async (name) => {
 // 创建章节
 export const addChapter = async (courseId, chapterData) => {
   try {
-    const response = await axios.post(`http://localhost:3000/courses/${courseId}`, chapterData);
+    const response = await api.post(`/courses/${courseId}`, chapterData);
     return response.data;
   } catch (error) {
     throw new Error(error);
@@ -95,7 +98,7 @@ export const uploadFile = async (file) => {
     let formData = new FormData();
     formData.append('file', file);
     
-    const response = await axios.post(`http://localhost:3000/upload`, formData, {
+    const response = await api.post(`/upload`, formData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }

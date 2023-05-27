@@ -59,8 +59,6 @@ const courses = ref([]);
 const imageSource=ref("")
 
 
-
-
 onMounted(async () => {
   try {
     const response = await getCourses();

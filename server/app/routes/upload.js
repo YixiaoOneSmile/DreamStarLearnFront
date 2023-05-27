@@ -5,6 +5,6 @@ module.exports = function (app, passport) {
     // Set up passport authorization middleware
     authorization(passport);
 
-    app.post("/upload",uploadController.uploadFile);
-    
+    app.post("/upload/CourseVedio",uploadController.uploadCourseVedio);
+    app.post("/upload/CourseImg",uploadController.uploadCourseImg);
 };

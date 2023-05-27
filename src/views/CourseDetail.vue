@@ -49,7 +49,6 @@ const route = useRoute();
 
 onMounted(async () => {
   try {
-    console.log(route.params.courseId)
     const response = await getCourse(route.params.courseId);
     course.value = response.data;
   } catch (error) {
