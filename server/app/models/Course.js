@@ -14,6 +14,10 @@ const courseSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
     },
+    img: {
+        type: String,
+        default: '123',  // Optional. Provide a default value if desired.
+    },
     students: [
         {
             type: mongoose.Schema.Types.ObjectId,
@@ -23,7 +27,6 @@ const courseSchema = new mongoose.Schema({
     chapters: [
         {
             title: String,
-            img:String,
             description: String,
             videoURL: String,
             pdfURL: String,
