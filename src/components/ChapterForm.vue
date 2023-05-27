@@ -15,16 +15,18 @@
       <el-input type="textarea" v-model="chapterForm.description" />
     </el-form-item>
     <el-form-item label="上传视频" prop="videoURL">
-      <el-upload action="https://example.com/upload" accept="video/*" :on-success="handleSuccess" :on-error="handleError"
-        :before-upload="beforeUpload">
+    <!-- 这里直接调用了上传文件的接口，暂时还没有将这个配置在全局，所以部署应该注意这里，当然，这个接口目前需要改善 -->
+      <el-upload action="http://localhost:3000/upload" accept="*" :before-upload="beforeUpload"
+        :on-success="handleSuccess" :on-error="handleError">
         <el-button slot="trigger" size="small" type="primary">点击上传</el-button>
       </el-upload>
+
     </el-form-item>
     <el-form-item label="视频URL" prop="videoURL">
       <el-input v-model="chapterForm.videoURL" />
     </el-form-item>
 
-    <el-form-item label="PDF URL" prop="pdfURL">
+    <el-form-item v-show="false" label="PDF URL" prop="pdfURL">
       <el-input v-model="chapterForm.pdfURL" />
     </el-form-item>
 
@@ -36,7 +38,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { addChapter, findCourse } from '../api/index.js'
+import { addChapter, findCourse, uploadFile } from '../api/index.js'
 
 let selectedCourse = ref(null); // 保存用户选择的课程
 let courses = ref([]); // 课程列表
@@ -53,13 +55,14 @@ let chapterForm = ref({
   title: '',
   description: '',
   videoURL: '',
-  pdfURL: ''
+  pdfURL: 'null'
 })
 //文件上传
+
 const handleSuccess = (response, file, fileList) => {
   // handle success
-  console.log(response);
-  chapterForm.value.videoURL= response.url;  // 假设服务器的响应中包含文件的 URL
+  console.log(response.fileUrl);
+  chapterForm.value.videoURL = response.fileUrl;  // 假设服务器的响应中包含文件的 URL
 };
 
 const handleError = (err, file, fileList) => {
@@ -87,7 +90,7 @@ const handleSubmit = async () => {
       title: '',
       description: '',
       videoURL: '',
-      pdfURL: ''
+      pdfURL: 'null'
     }
   } catch (error) {
     console.error(error)

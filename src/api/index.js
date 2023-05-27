@@ -49,7 +49,7 @@ export const getCourse = async (courseId) => {
 // 创建课程
 export const createCourse = async (course) => {
   try {
-    const response = await axios.post('/createCourse', course);
+    const response = await axios.post('http://localhost:3000/createCourse', course);
     return response.data;
   } catch (error) {
     throw new Error(error);
@@ -83,6 +83,24 @@ export const findCourse = async (name) => {
 export const addChapter = async (courseId, chapterData) => {
   try {
     const response = await axios.post(`http://localhost:3000/courses/${courseId}`, chapterData);
+    return response.data;
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
+//上传文件
+export const uploadFile = async (file) => {
+  try {
+    let formData = new FormData();
+    formData.append('file', file);
+    
+    const response = await axios.post(`http://localhost:3000/upload`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    });
+
     return response.data;
   } catch (error) {
     throw new Error(error);

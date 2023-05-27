@@ -23,7 +23,7 @@
 
       <div class="sidebar">
         <div class="card">
-          <h3 class="card-title">Chapters</h3>
+          <h3 class="card-title">课程列表</h3>
           <ul class="chapter-list">
             <li v-for="chapter in course.chapters" :key="chapter._id" @click="handleChapterSelect(chapter)"
               class="chapter-item">
